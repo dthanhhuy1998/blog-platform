@@ -1,0 +1,14 @@
+/* base/variables.css */
+
+:root {
+
+    /* Fonts */
+    --font-heading: "Google Sans", sans-serif;
+    --font-primary: "Be Vietnam Pro", sans-serif;
+    --font-secondary: "Inter", sans-serif;
+
+    /* Colors */
+    --color-primary: #FFC800;
+    --color-black: #161616;
+    --color-white: #fff;
+}
