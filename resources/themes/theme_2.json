@@ -1,0 +1,59 @@
+{
+    "key": "theme_2",
+    "name": "Máy JUMAO đỉnh cao",
+    "preview": "/images/theme_modern_preview.jpg",
+    "css": [
+        "css/theme1.css"
+    ],
+    "js": [
+        "js/falling-apricot-blossoms.js"
+    ],
+    "sections": [
+        {
+            "key": "hero 2",
+            "type": "banner",
+            "order": 1,
+            "default_data": {
+                "title": "Welcome to our product",
+                "subtitle": "Best solution for your business",
+                "button_text": "Get Started",
+                "image": "/images/hero.png"
+            }
+        },
+        {
+            "key": "features",
+            "type": "list",
+            "order": 2,
+            "default_data": {
+                "title": "Outstanding Features",
+                "items": [
+                    {
+                        "icon": "icon-speed.svg",
+                        "title": "Fast",
+                        "description": "Very fast processing"
+                    },
+                    {
+                        "icon": "icon-secure.svg",
+                        "title": "Secure",
+                        "description": "Top security standards"
+                    }
+                ]
+            }
+        },
+        {
+            "key": "faq",
+            "type": "faq",
+            "order": 3,
+            "default_data": [
+                {
+                    "q": "How does it work?",
+                    "a": "Very simple…"
+                },
+                {
+                    "q": "Is it safe?",
+                    "a": "Absolutely safe."
+                }
+            ]
+        }
+    ]
+}

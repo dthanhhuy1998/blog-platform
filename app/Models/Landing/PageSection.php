@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Models\Landing;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class PageSection extends Model
+{
+    use HasFactory;
+
+    protected $table = 'page_sections';
+}

@@ -1,0 +1,48 @@
+{
+    "key": "theme1",
+    "name": "Mẫu 1",
+    "blocks": [
+        {
+            "type": "hero",
+            "required": true,
+            "default": {
+                "title": "Nệm cao su thiên nhiên 100%",
+                "subtitle": "Êm ái – Thoáng khí – Không xẹp lún",
+                "cta_text": "Đặt mua ngay"
+            }
+        },
+        {
+            "type": "benefits",
+            "required": true,
+            "default": {
+                "items": [
+                    "Thoáng khí tự nhiên",
+                    "Nâng đỡ cột sống",
+                    "Không gây mùi khó chịu"
+                ]
+            }
+        },
+        {
+            "type": "images",
+            "required": false,
+            "default": {
+                "images": []
+            }
+        },
+        {
+            "type": "faq",
+            "required": false,
+            "default": {
+                "items": []
+            }
+        },
+        {
+            "type": "cta",
+            "required": true,
+            "default": {
+                "text": "Liên hệ tư vấn ngay",
+                "button": "Gọi ngay"
+            }
+        }
+    ]
+}

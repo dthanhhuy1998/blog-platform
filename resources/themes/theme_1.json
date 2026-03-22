@@ -1,0 +1,63 @@
+{
+    "key": "theme1",
+    "name": "Theme 1",
+    "preview": "/images/theme_modern_preview.jpg",
+    "css": [
+        "libs/bootstrap-5.0.2-dist/css/bootstrap.min.css",
+        "libs/fontawesome5/css/all.min.css",
+        "css/style.css"
+    ],
+    "js": [
+        "libs/bootstrap-5.0.2-dist/js/bootstrap.min.js",
+        "libs/jquery-3.7.1.min.js",
+        "js/falling-apricot-blossoms.js"
+    ],
+    "sections": [
+        {
+            "key": "hero",
+            "type": "banner",
+            "order": 1,
+            "default_data": {
+                "title": "Welcome to our product",
+                "subtitle": "Best solution for your business",
+                "button_text": "Get Started",
+                "image": "/images/hero.png"
+            }
+        },
+        {
+            "key": "features",
+            "type": "list",
+            "order": 2,
+            "default_data": {
+                "title": "Outstanding Features",
+                "items": [
+                    {
+                        "icon": "icon-speed.svg",
+                        "title": "Fast",
+                        "description": "Very fast processing"
+                    },
+                    {
+                        "icon": "icon-secure.svg",
+                        "title": "Secure",
+                        "description": "Top security standards"
+                    }
+                ]
+            }
+        },
+        {
+            "key": "faq",
+            "type": "faq",
+            "order": 3,
+            "default_data": [
+                {
+                    "q": "How does it work?",
+                    "a": "Very simple…"
+                },
+                {
+                    "q": "Is it safe?",
+                    "a": "Absolutely safe."
+                }
+            ]
+        }
+    ]
+}
