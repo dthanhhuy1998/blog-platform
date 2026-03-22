@@ -4,29 +4,6 @@ body {
     font-family: var(--font-heading);
 }
 
-.blog-wrapper {
-    width: 100%;
-    margin: 10vh 0;
-}
-
-.blog {
-    margin-bottom: 25px;
-}
-
-.blog__heading {
-    font-family: var(--font-heading);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--color-black);
-    margin: 50px 0;
-}
-
-.blog-image-img {
-    width: 100%;
-}
-
 .featured {
     padding: 15px 0;
 }

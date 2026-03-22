@@ -13,5 +13,8 @@
 
 /* components */
 @import url('./components/button.css');
+@import url('./components/blog.css');
+@import url('./components/search-overlay.css');
 
 /* pages */
+@import url('./pages/blog-detail.css');
