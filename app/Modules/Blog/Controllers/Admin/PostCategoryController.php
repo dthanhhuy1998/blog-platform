@@ -130,8 +130,14 @@ class PostCategoryController extends Controller
 
     public function destroy($id)
     {
+        $category = $this->postCategoryService->find($id);
+
+        if($category->image) {
+            Storage::disk('public')->delete($category->image);
+        }
+
         $this->postCategoryService->delete($id);
 
-        return redirect()->route('admin.categories.index')->with('success_msg', __('Delete category successfully'));
+        return redirect()->route('admin.categories.index')->with('success', __('Delete category successfully'));
     }
 }
