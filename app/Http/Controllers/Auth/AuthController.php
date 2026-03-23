@@ -38,4 +38,10 @@ class AuthController extends Controller
             return redirect()->back()->with('error_msg', 'Tên tài khoản hoặc mật khẩu không đúng!');
         }
     } 
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }
