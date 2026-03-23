@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $latestPost = $this->postService->getLatestPost();
-        $orderLatestPosts = $this->postService->getLatestPosts(4, [$latestPost->id]);
+        $orderLatestPosts = $this->postService->getLatestPosts(4, [$latestPost->id ?? 0]);
 
         $posts = $this->postService->getAllPost();
 
