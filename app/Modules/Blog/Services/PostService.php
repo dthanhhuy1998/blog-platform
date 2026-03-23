@@ -36,4 +36,14 @@ class PostService {
     {
         return $this->postRepository->destroy($id);
     }
+
+    public function getLatestPost()
+    {
+        return $this->postRepository->getLatestPost();
+    }
+
+    public function getLatestPosts($limit = 5, $excludeIds = [])
+    {
+        return $this->postRepository->getLatestPosts($limit, $excludeIds);
+    }
 }

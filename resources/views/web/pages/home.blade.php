@@ -5,215 +5,85 @@
     <div class="featured">
         <div class="row">
             <div class="col-md-6 col-lg-6 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                </article>
+                @if ($latestPost)
+                    <article class="blog">
+                        <figure class="blog-image">
+                            <img src="{{$latestPost->image ? asset('storage/'.$latestPost->image) : asset('/images/default.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
+                        </figure>
+                        @if($latestPost->categories)
+                            @foreach($latestPost->categories as $category)
+                                <a href="#" class="blog-category">
+                                    <span>{{$category->name}}, </span>
+                                </a>
+                            @endforeach
+                        @endif
+                        <h2 class="blog-title">
+                            <a href="#">{{ $latestPost->title }}</a>
+                        </h2>
+                    </article>
+                @endif
             </div>
             <div class="col-md-6 col-lg-6 col-xs-12">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-xs-12">
-                        <article class="blog">
-                            <figure class="blog-image">
-                                <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                            </figure>
-                            <a href="#" class="blog-category">Chow Down</a>
-                            <h2 class="blog-title">
-                                <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                            </h2>
-                            <span class="blog-author">
-                                by <a href="#" class="author-name">Jonny Mine</a>
-                            </span>
-                        </article>
+                @if ($orderLatestPosts)
+                    <div class="row">
+                        @foreach ($orderLatestPosts as $post)
+                            <div class="col-lg-6 col-md-6 col-xs-12">
+                                <article class="blog">
+                                    <figure class="blog-image">
+                                        <img src="{{$post->image ? asset('storage/'.$post->image) : asset('/images/default.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
+                                    </figure>
+                                    @if($post->categories)
+                                        <a href="#" class="blog-category">
+                                            @foreach($post->categories as $category)
+                                                <span>{{$category->name}}, </span>
+                                            @endforeach
+                                        </a>
+                                    @endif
+                                    <h2 class="blog-title">
+                                        <a href="#">{{ $post->title }}</a>
+                                    </h2>
+                                    <span class="blog-author">
+                                        by <a href="#" class="author-name">{{ $post->user->name }}</a>
+                                    </span>
+                                </article>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-lg-6 col-md-6 col-xs-12">
-                        <article class="blog">
-                            <figure class="blog-image">
-                                <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                            </figure>
-                            <a href="#" class="blog-category">Chow Down</a>
-                            <h2 class="blog-title">
-                                <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                            </h2>
-                            <span class="blog-author">
-                                by <a href="#" class="author-name">Jonny Mine</a>
-                            </span>
-                        </article>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xs-12">
-                        <article class="blog">
-                            <figure class="blog-image">
-                                <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                            </figure>
-                            <a href="#" class="blog-category">Chow Down</a>
-                            <h2 class="blog-title">
-                                <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                            </h2>
-                            <span class="blog-author">
-                                by <a href="#" class="author-name">Jonny Mine</a>
-                            </span>
-                        </article>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xs-12">
-                        <article class="blog">
-                            <figure class="blog-image">
-                                <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                            </figure>
-                            <a href="#" class="blog-category">Chow Down</a>
-                            <h2 class="blog-title">
-                                <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                            </h2>
-                            <span class="blog-author">
-                                by <a href="#" class="author-name">Jonny Mine</a>
-                            </span>
-                        </article>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
     <section class="blog-wrapper">
-        <h2 class="blog__heading">DIY & How-To Everything</h2>
-        <div class="row">
-            <!-- First Row: 4 Items -->
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
+        <h2 class="blog__heading">{{__('Latest Posts')}}</h2>
+        @if ($posts)
+            <div class="row">
+                @foreach ($posts as $post)
+                    <div class="col-md-3 col-lg-3 col-xs-12">
+                        <article class="blog">
+                            <figure class="blog-image">
+                                <a href="#">
+                                    <img src="{{$post->image ? asset('storage/'.$post->image) : asset('/images/default.jpg')}}" alt="{{ $post->title }}" class="blog-image-img" loading="lazy">
+                                </a>
+                            </figure>
+                            <a href="#" class="blog-category">
+                                @foreach($post->categories as $category)
+                                    <span>{{$category->name}}, </span>
+                                @endforeach
+                            </a>
+                            <h2 class="blog-title">
+                                <a href="#">{{ $post->title }}</a>
+                            </h2>
+                            <span class="blog-author">
+                                By <a href="#" class="author-name">{{ $post->user->name }}</a>
+                            </span>
+                        </article>
+                    </div>
+                @endforeach
             </div>
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
-            </div>
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
-            </div>
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
-            </div>
-            <!-- Second Row: 4 Items -->
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
-            </div>
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
-            </div>
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
-            </div>
-            <div class="col-md-3 col-lg-3 col-xs-12">
-                <article class="blog">
-                    <figure class="blog-image">
-                        <a href="#">
-                            <img src="{{asset('frontend/assets/images/blog-img.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
-                        </a>
-                    </figure>
-                    <a href="#" class="blog-category">Chow Down</a>
-                    <h2 class="blog-title">
-                        <a href="#">Pull-Apart Chicken Bacon Ranch Sliders Recipe</a>
-                    </h2>
-                    <span class="blog-author">
-                        By <a href="#" class="author-name">Ericchain</a>
-                    </span>
-                </article>
-            </div>
-            <!-- Hero Banner -->
-            <div class="hero-banner">
-                <img src="{{ asset('frontend/assets/images/hero-banner.png') }}" class="hero-banner-img" alt="Save 40% on Creative Cloud Pro">
-            </div>
+        @endif
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <img src="{{ asset('frontend/assets/images/hero-banner.png') }}" class="hero-banner-img" alt="Save 40% on Creative Cloud Pro">
         </div>
     </section>
 </div>

@@ -35,4 +35,18 @@ class PostRepository {
     {
         return Post::where('id', $id)->delete();
     }
+
+    public function getLatestPost()
+    {
+        return Post::orderBy('created_at', 'desc')->first();
+    }
+
+    public function getLatestPosts($limit = 5, $excludeIds = [])
+    {
+        if (empty($excludeIds)) {
+            return Post::orderBy('created_at', 'desc')->limit($limit)->get();
+        }
+
+        return Post::orderBy('created_at', 'desc')->limit($limit)->whereNotIn('id', $excludeIds)->get();
+    }
 }

@@ -73,7 +73,7 @@ class PostController extends Controller
         ];
 
         $post = $this->postService->store($data);
-        $post->category()->attach($request->get('categories'));
+        $post->categories()->attach($request->get('categories'));
 
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully');
     }
@@ -83,7 +83,7 @@ class PostController extends Controller
         $post = $this->postService->getPostById($postId);
         $categories = $this->categoryService->getAllCategory();
 
-        $selectedCategories = $post->category->pluck('id')->toArray();
+        $selectedCategories = $post->categories->pluck('id')->toArray();
 
         $title = __('Edit') . ': ' . $post->title;
 
@@ -129,7 +129,7 @@ class PostController extends Controller
         ];
 
         $this->postService->update($id, $data);
-        $post->category()->sync($request->get('categories'));
+        $post->categories()->sync($request->get('categories'));
 
         return redirect()->route('admin.posts.index')->with('success', 'Post updated successfully');
     }

@@ -5,6 +5,7 @@ namespace App\Modules\Blog\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Modules\Blog\Models\PostCategory;
+use App\Modules\User\Models\User;
 
 class Post extends Model
 {
@@ -25,7 +26,12 @@ class Post extends Model
         'status',
     ];
 
-    public function category() {
+    public function categories() {
         return $this->belongsToMany(PostCategory::class, 'article_to_category', 'article_id', 'category_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault(['name' => 'Anonymous']);
     }
 }
