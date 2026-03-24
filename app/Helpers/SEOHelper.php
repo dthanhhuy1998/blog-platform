@@ -17,7 +17,7 @@ class SEOHelper {
     ) {
         $siteName = config('app.name');
 
-        $fullTitle = $title . ' | ' . $siteName;
+        $fullTitle = $title;
 
         $description = $description ?: config('seo.description') ?? '';
 

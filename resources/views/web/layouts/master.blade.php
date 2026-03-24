@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{asset('frontend/favicon.ico')}}">
-    <title>Document</title>
+    
+    {!! SEO::generate() !!}
 
     <!-- Boostrap 5.3 -->
     <link rel="stylesheet" href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}">
