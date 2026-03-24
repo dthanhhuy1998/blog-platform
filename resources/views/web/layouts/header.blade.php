@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header-wrapper">
             <div class="logo">
-                <a href="./" class="header-wrapper__logo-link">
+                <a href="{{route('index')}}" class="header-wrapper__logo-link">
                     <img src="{{ asset('frontend/assets/images/logo.png') }}" class="header-wrapper__logo-img" alt="">
                 </a>
             </div>
@@ -12,16 +12,16 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="{{route('index')}}">{{__('Homepage')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href="#">{{__('Blog')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Featured</a>
+                                    <a class="nav-link" href="#">{{__('Featured')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
+                                    <a class="nav-link" href="#">{{__('Contact')}}</a>
                                 </li>
                             </ul>
                         </div>

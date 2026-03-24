@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('Status')}}</label>
-                                    <select name="status" class="form-control select2">
+                                    <select name="status" class="form-control select2" style="width: 100%;">
                                         <option value="{{App\Modules\Blog\Enums\PostStatusEnum::Active}}" @if($post->status == App\Modules\Blog\Enums\PostStatusEnum::Active) selected @endif>{{__('Active')}}</option>
                                         <option value="{{App\Modules\Blog\Enums\PostStatusEnum::Inactive}}" @if($post->status == App\Modules\Blog\Enums\PostStatusEnum::Inactive) selected @endif>{{__('Inactive')}}</option>
                                     </select>

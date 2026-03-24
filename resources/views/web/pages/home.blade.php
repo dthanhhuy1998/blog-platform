@@ -18,7 +18,7 @@
                             @endforeach
                         @endif
                         <h2 class="blog-title">
-                            <a href="#">{{ $latestPost->title }}</a>
+                            <a href="{{generate_url($latestPost)}}">{{ $latestPost->title }}</a>
                         </h2>
                     </article>
                 @endif
@@ -40,7 +40,7 @@
                                         </a>
                                     @endif
                                     <h2 class="blog-title">
-                                        <a href="#">{{ $post->title }}</a>
+                                        <a href="{{generate_url($post)}}">{{ $post->title }}</a>
                                     </h2>
                                     <span class="blog-author">
                                         {{__('By')}} 
@@ -74,7 +74,7 @@
                                 @endforeach
                             </a>
                             <h2 class="blog-title">
-                                <a href="#">{{ $post->title }}</a>
+                                <a href="{{generate_url($post)}}">{{ $post->title }}</a>
                             </h2>
                             <span class="blog-author">
                                 {{__('By')}} 

@@ -4,6 +4,7 @@ namespace App\Modules\Blog\Services;
 
 use App\Modules\Blog\Repositories\PostRepository;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostService {
     public function __construct(private PostRepository $postRepository) {}
