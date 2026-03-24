@@ -3,6 +3,7 @@
 namespace App\Modules\Blog\Services;
 
 use App\Modules\Blog\Repositories\PostRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PostService {
     public function __construct(private PostRepository $postRepository) {}
@@ -24,11 +25,17 @@ class PostService {
 
     public function store(array $data)
     {
+        $data['created_by'] = Auth::id();
+        $data['created_at'] = date('Y-m-d H:i:s');
+
         return $this->postRepository->store($data);
     }
 
     public function update(int $id, array $data)
     {
+        $data['updated_by'] = Auth::id();
+        $data['updated_at'] = date('Y-m-d H:i:s');
+
         return $this->postRepository->update($id, $data);
     }
 

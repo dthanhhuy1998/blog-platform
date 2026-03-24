@@ -24,14 +24,23 @@ class Post extends Model
         'meta_keyword',
         'sort_order',
         'status',
+        'created_by',
+        'updated_by',
+        'created_at',
+        'updated_at',
     ];
 
     public function categories() {
         return $this->belongsToMany(PostCategory::class, 'article_to_category', 'article_id', 'category_id');
     }
 
-    public function user()
+    public function createdBy()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault(['name' => 'Anonymous']);
+        return $this->belongsTo(User::class, 'created_by', 'id')->withDefault(['name' => 'Anonymous']);
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'id')->withDefault(['name' => 'Anonymous']);
     }
 }

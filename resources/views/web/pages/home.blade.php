@@ -43,7 +43,10 @@
                                         <a href="#">{{ $post->title }}</a>
                                     </h2>
                                     <span class="blog-author">
-                                        by <a href="#" class="author-name">{{ $post->user->name }}</a>
+                                        {{__('By')}} 
+                                        @if ($post->createdBy)
+                                            <a href="#" class="author-name">{{ $post->createdBy->lastname }} {{ $post->createdBy->firstname }}</a>
+                                        @endif
                                     </span>
                                 </article>
                             </div>
@@ -74,7 +77,10 @@
                                 <a href="#">{{ $post->title }}</a>
                             </h2>
                             <span class="blog-author">
-                                By <a href="#" class="author-name">{{ $post->user->name }}</a>
+                                {{__('By')}} 
+                                @if ($post->createdBy)
+                                    <a href="#" class="author-name">{{ $post->createdBy->lastname }} {{ $post->createdBy->firstname }}</a>
+                                @endif
                             </span>
                         </article>
                     </div>

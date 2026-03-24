@@ -46,8 +46,11 @@
                                     <th>{{__('No.')}}</th>
                                     <th>{{__('Image')}}</th>
                                     <th>{{__('Title')}}</th>
+                                    <th>{{__('Category')}}</th>
+                                    <th>{{__('Keyword')}}</th>
+                                    <th>{{__('Created By')}}</th>
+                                    <th>{{__('Updated By')}}</th>
                                     <th>{{__('Position')}}</th>
-                                    <th>{{__('Created At')}}</th>
                                     <th>{{__('Status')}}</th>
                                     <th>{{__('Actions')}}</th>
                                 </tr>
@@ -64,8 +67,21 @@
                                             </div>
                                         </td>
                                         <td width="30%"><a href="{{ route('admin.posts.edit', [$post->id]) }}">{{ $post->title }}</a></td>
+                                        <td>
+                                            @foreach($post->categories as $category)
+                                                <span class="label bg-blue">{{ $category->name }}</span>
+                                            @endforeach
+                                        </td>
+                                        <td class="text-center">{{ $post->meta_keyword }}</td>
+                                        <td>    
+                                            <span>{{ $post->createdBy->lastname }} {{ $post->createdBy->firstname }}</span><br/>
+                                            <span>{{ vn_datetime($post->created_at) }}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{ $post->updatedBy->lastname }} {{ $post->updatedBy->firstname }}</span><br/>
+                                            <span>{{ vn_datetime($post->updated_at) }}</span>
+                                        </td>
                                         <td class="text-center">{{ $post->sort_order }}</td>
-                                        <td>{{ $post->created_at }}</td>
                                         <td>
                                             @if($post->status == 1)
                                                 <small class="label bg-blue">{{__('Published')}}</small>
@@ -75,7 +91,7 @@
                                         </td>
                                         <td width="10%">
                                             <div class="d-flex">
-                                                <a href="{{ route('admin.posts.edit', [$post->id]) }}" class="btn btn-primary btn-sm mr-1" title="{{__('Edit')}}"><i class="fa fa-edit"></i></a>
+                                                <a href="{{ route('admin.posts.edit', [$post->id]) }}" class="  btn btn-primary btn-sm mr-1" title="{{__('Edit')}}"><i class="fa fa-edit"></i></a>
                                                 <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>{{__('Status')}}</label>
-                                    <select name="status" class="form-control">
+                                    <select name="status" class="form-control select2" style="width: 100%;">
                                         <option value="{{App\Modules\Blog\Enums\PostStatusEnum::Active}}">{{__('Active')}}</option>
                                         <option value="{{App\Modules\Blog\Enums\PostStatusEnum::Inactive}}">{{__('Inactive')}}</option>
                                     </select>
