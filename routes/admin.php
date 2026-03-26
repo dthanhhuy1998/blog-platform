@@ -21,3 +21,7 @@ Route::resource('categories', PostCategoryController::class);
 Route::resource('posts', PostController::class);
 Route::resource('banners', BannerController::class);
 Route::resource('settings', SettingController::class);
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});

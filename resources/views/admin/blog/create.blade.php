@@ -130,9 +130,9 @@
         $('.textarea').wysihtml5()
         var options = {
             filebrowserImageBrowseUrl: '/admin/laravel-filemanager?type=Images',
-            filebrowserImageUploadUrl: '/admin/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserImageUploadUrl: '/admin/laravel-filemanager/upload?type=Images&_token={{ csrf_token() }}',
             filebrowserBrowseUrl: '/admin/laravel-filemanager?type=Files',
-            filebrowserUploadUrl: '/admin/laravel-filemanager/upload?type=Files&_token='
+            filebrowserUploadUrl: '/admin/laravel-filemanager/upload?type=Files&_token={{ csrf_token() }}'
         };
         CKEDITOR.replace('editor1', options);
     })
