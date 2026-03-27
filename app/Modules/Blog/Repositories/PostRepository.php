@@ -3,6 +3,7 @@
 namespace App\Modules\Blog\Repositories;
 
 use App\Modules\Blog\Models\Post;
+use App\Modules\Blog\Enums\PostStatusEnum;
 
 class PostRepository {
     
@@ -48,5 +49,18 @@ class PostRepository {
         }
 
         return Post::orderBy('created_at', 'desc')->limit($limit)->whereNotIn('id', $excludeIds)->get();
+    }
+
+    public function getPostsByCategoryId(int $categoryId, $paginate = false, $limit = 10, $extra = [])
+    {
+        $query = Post::whereHas('categories', function ($query) use ($categoryId) {
+            $query->where('article_category.id', $categoryId);
+        })->where('status', PostStatusEnum::Active);
+
+        if ($paginate) {
+            return $query->paginate($limit);
+        }
+
+        return $query->limit($limit)->get();
     }
 }

@@ -31,4 +31,14 @@ class PostCategoryService {
     {
         $this->postCategoryRepository->delete($id);
     }
+
+    public function checkExistsBySlug(string $slug)
+    {
+        return $this->postCategoryRepository->checkExistsBySlug($slug);
+    }
+
+    public function getCategoryBySlug(string $slug)
+    {
+        return $this->postCategoryRepository->getCategoryBySlug($slug);
+    }
 }

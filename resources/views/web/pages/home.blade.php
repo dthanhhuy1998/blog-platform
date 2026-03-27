@@ -8,11 +8,13 @@
                 @if ($latestPost)
                     <article class="blog">
                         <figure class="blog-image">
-                            <img src="{{$latestPost->image ? asset('storage/'.$latestPost->image) : asset('/images/default.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
+                            <a href="{{generate_url($latestPost)}}">
+                                <img src="{{$latestPost->image ? asset('storage/'.$latestPost->image) : asset('/images/default.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
+                            </a>
                         </figure>
                         @if($latestPost->categories)
                             @foreach($latestPost->categories as $category)
-                                <a href="#" class="blog-category">
+                                <a href="{{route('category.show', ['locale' => app()->getLocale(), 'category' => $category->slug])}}" class="blog-category">
                                     <span>{{$category->name}}, </span>
                                 </a>
                             @endforeach
@@ -30,14 +32,16 @@
                             <div class="col-lg-6 col-md-6 col-xs-12">
                                 <article class="blog">
                                     <figure class="blog-image">
-                                        <img src="{{$post->image ? asset('storage/'.$post->image) : asset('/images/default.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
+                                        <a href="{{generate_url($post)}}">
+                                            <img src="{{$post->image ? asset('storage/'.$post->image) : asset('/images/default.jpg')}}" alt="Pull Apart Chicken Bacon Ranch Sliders" class="blog-image-img" loading="lazy">
+                                        </a>
                                     </figure>
                                     @if($post->categories)
-                                        <a href="#" class="blog-category">
-                                            @foreach($post->categories as $category)
+                                        @foreach($post->categories as $category)
+                                            <a href="{{route('category.show', ['locale' => app()->getLocale(), 'category' => $category->slug])}}" class="blog-category">
                                                 <span>{{$category->name}}, </span>
-                                            @endforeach
-                                        </a>
+                                            </a>
+                                        @endforeach    
                                     @endif
                                     <h2 class="blog-title">
                                         <a href="{{generate_url($post)}}">{{ $post->title }}</a>
@@ -64,15 +68,15 @@
                     <div class="col-md-3 col-lg-3 col-xs-12">
                         <article class="blog">
                             <figure class="blog-image">
-                                <a href="#">
+                                <a href="{{generate_url($post)}}">
                                     <img src="{{$post->image ? asset('storage/'.$post->image) : asset('/images/default.jpg')}}" alt="{{ $post->title }}" class="blog-image-img" loading="lazy">
                                 </a>
                             </figure>
-                            <a href="#" class="blog-category">
-                                @foreach($post->categories as $category)
+                            @foreach($post->categories as $category)
+                                <a href="{{route('category.show', ['locale' => app()->getLocale(), 'category' => $category->slug])}}" class="blog-category">
                                     <span>{{$category->name}}, </span>
-                                @endforeach
-                            </a>
+                                </a>
+                            @endforeach
                             <h2 class="blog-title">
                                 <a href="{{generate_url($post)}}">{{ $post->title }}</a>
                             </h2>

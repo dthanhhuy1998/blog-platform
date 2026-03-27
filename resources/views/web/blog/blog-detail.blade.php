@@ -6,7 +6,7 @@
             <nav aria-label="breadcrumb" class="blog-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('index')}}">{{__('Homepage')}}</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('index')}}">{{$post->categories->first()->name}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('category.show', ['locale' => app()->getLocale(), 'category' => $post->categories->first()->slug])}}">{{$post->categories->first()->name}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{$post->title}}</li>
                 </ol>
             </nav>

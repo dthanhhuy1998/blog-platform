@@ -12,7 +12,7 @@ if (!function_exists('slugify')) {
 if (!function_exists('generate_url')) {
     function generate_url($post, $locale = null)
     {
-         $locale = $locale ?? app()->getLocale();
+        $locale = $locale ?? app()->getLocale();
 
         $categorySlug = slugify($post->categories->first()->name ?? 'undefined');
 

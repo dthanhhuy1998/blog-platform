@@ -54,4 +54,9 @@ class PostService {
     {
         return $this->postRepository->getLatestPosts($limit, $excludeIds);
     }
+
+    public function getPostsByCategoryId(int $categoryId, $paginate = false, $limit = 10, $extra = [])
+    {
+        return $this->postRepository->getPostsByCategoryId($categoryId, $paginate, $limit, $extra);
+    }
 }

@@ -30,4 +30,14 @@ class PostCategoryRepository {
     {
         return PostCategory::where('id', $id)->delete();
     }
+
+    public function checkExistsBySlug(string $slug)
+    {
+        return PostCategory::where('slug', $slug)->exists();
+    }
+
+    public function getCategoryBySlug(string $slug)
+    {
+        return PostCategory::where('slug', $slug)->first();
+    }
 }
