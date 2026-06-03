@@ -39,16 +39,16 @@ class PostRepository {
 
     public function getLatestPost()
     {
-        return Post::orderBy('created_at', 'desc')->first();
+        return Post::where('status', PostStatusEnum::Active)->orderBy('created_at', 'desc')->first();
     }
 
-    public function getLatestPosts($limit = 5, $excludeIds = [])
+    public function getLatestPosts($paginate = 10)
     {
-        if (empty($excludeIds)) {
-            return Post::orderBy('created_at', 'desc')->limit($limit)->get();
+        if ($paginate > 0) {
+            return Post::where('status', PostStatusEnum::Active)->orderBy('created_at', 'desc')->paginate($paginate);
         }
 
-        return Post::orderBy('created_at', 'desc')->limit($limit)->whereNotIn('id', $excludeIds)->get();
+        return Post::where('status', PostStatusEnum::Active)->orderBy('created_at', 'desc')->get();
     }
 
     public function getPostsByCategoryId(int $categoryId, $paginate = false, $limit = 10, $extra = [])
