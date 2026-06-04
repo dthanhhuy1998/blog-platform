@@ -17,11 +17,17 @@ class PostApiResource extends JsonResource
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
             'meta_keyword' => $this->meta_keyword,
+            'url' => route('post.show', [
+                'locale' => app()->getLocale(),
+                'category' => $this->categories?->first()?->slug,
+                'slug' => $this->slug,
+                'id' => $this->id,
+            ]),
             'image' => !empty($this->image) ? Storage::disk('public')->url($this->image) : null,
             'created_by' => $this->createdBy?->lastname .' '. $this->createdBy?->firstname,
             'updated_by' => $this->updatedBy?->lastname .' '. $this->updatedBy?->firstname,
-            'created_at' => $this->created_at->format('d/m/Y H:i:s'),
-            'updated_at' => $this->updated_at->format('d/m/Y H:i:s'),
+            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
         ];
     }
 }
